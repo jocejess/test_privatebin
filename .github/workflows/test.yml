@@ -21,5 +21,5 @@ jobs:
         php_version: "8.2"
         version: "9.6.11"
         php_extensions: gd xdebug
-        bootstrap: vendor/autoload.php
+        bootstrap: ../vendor/autoload.php
         configuration: tst/phpunit.xml
