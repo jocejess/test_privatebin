@@ -25,13 +25,13 @@
 	},
 	"require" : {
 		"php": "^8.1",
-		"google/cloud-storage": "1.32.0",
+		"google/cloud-storage": "1.37.0",
 		"jdenticon/jdenticon": "1.0.2",
 		"mlocati/ip-lib": "1.18.0",
 		"yzalis/identicon": "2.0.0"
 	},
 	"suggest" : {
-		"google/cloud-storage" : "1.32.0",
+		"google/cloud-storage" : "1.37.0",
 		"aws/aws-sdk-php" : "3.275.1"
 	},
 	"require-dev" : {
