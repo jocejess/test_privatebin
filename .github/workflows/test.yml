@@ -20,5 +20,6 @@ jobs:
       with:
         php_version: "8.2"
         version: "9.6.11"
+        bootstrap: tst/Bootstrap.php
         php_extensions: gd xdebug
-        configuration: "tst/phpunit.xml"
+        configuration: phpunit.xml
