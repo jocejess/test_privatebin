@@ -12,7 +12,7 @@ jobs:
 
     # let's get started!
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - uses: php-actions/composer@v6 # or alternative dependency management
     - name: phpunit test
       uses: php-actions/phpunit@v3
