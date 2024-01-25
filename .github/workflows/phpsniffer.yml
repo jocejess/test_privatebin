@@ -1,0 +1,11 @@
+name: sniffer
+
+on: [push]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: sniffage
+        uses: phpcs .
