@@ -14,7 +14,6 @@ jobs:
         uses: php-actions/composer@v6
 
 
-    steps:
       - name: sniffage
         uses: ./vendor/bin/phpcs -h
 
