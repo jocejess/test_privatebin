@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - name: sniffage
-        uses: phpcs .
+        uses: ./vendor/bin/phpcs -h
