@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="tst/Bootstrap.php" colors="true">
+  <coverage>
+    <include>
+      <directory suffix=".php">./lib</directory>
+    </include>
+    <exclude>
+      <file>./lib/Data/AbstractData.php</file>
+    </exclude>
+    <report>
+      <cobertura outputFile="log/coverage-cobertura.xml" />
+    </report>
+  </coverage>
+  <testsuite name="PrivateBin Test Suite">
+    <directory suffix="Test.php">./tst</directory>
+  </testsuite>
+  <logging>
+    <testdoxHtml outputFile="log/testdox.html" />
+  </logging>
+</phpunit>
