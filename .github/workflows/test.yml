@@ -13,10 +13,12 @@ jobs:
       - name: 📦 Install dependencies
         uses: php-actions/composer@v6
 
-
-      - name: sniffage
-        uses: ./vendor/bin/phpcs -h ./tst/
-
+      - name: PHP Code Sniffer
+        uses: php-actions/phpcs@v1
+        with:
+          php_version: 8.1
+          path: src/
+          standard: phpcs.xml
 
 
 
