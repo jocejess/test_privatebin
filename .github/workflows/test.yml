@@ -15,7 +15,7 @@ jobs:
 
 
       - name: sniffage
-        uses: ./vendor/bin/phpcs -h
+        uses: ./vendor/bin/phpcs -h ./tst/
 
 
 
