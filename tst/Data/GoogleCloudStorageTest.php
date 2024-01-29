@@ -12,7 +12,7 @@ class GoogleCloudStorageTest extends TestCase
 
     public static function setUpBeforeClass(): void
     {
-        $httpClient = new Client(array('debug'=>false));
+        $httpClient = new Client(array('debug' => false));
         $handler    = HttpHandlerFactory::build($httpClient);
 
         $name     = 'pb-';

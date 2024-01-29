@@ -40,7 +40,7 @@ class ModelTest extends TestCase
         Helper::confBackup();
         Helper::createIniFile(CONF, $options);
         ServerSalt::setStore(new Database($options['model_options']));
-        $this->_conf            = new Configuration;
+        $this->_conf            = new Configuration();
         $this->_model           = new Model($this->_conf);
         $_SERVER['REMOTE_ADDR'] = '::1';
     }
@@ -124,7 +124,7 @@ class ModelTest extends TestCase
             'opt' => array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION),
         );
         Helper::createIniFile(CONF, $options);
-        $model = new Model(new Configuration);
+        $model = new Model(new Configuration());
         $model->getPaste('0000000000000000')->exists(); // triggers database table creation
         $model->getPaste(Helper::getPasteId())->delete(); // deletes the cache
 
@@ -202,7 +202,7 @@ class ModelTest extends TestCase
             'opt' => array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION),
         );
         Helper::createIniFile(CONF, $options);
-        $model = new Model(new Configuration);
+        $model = new Model(new Configuration());
 
         $pasteData   = Helper::getPastePost();
         $model->getPaste(Helper::getPasteId())->delete();
@@ -243,7 +243,7 @@ class ModelTest extends TestCase
             'opt' => array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION),
         );
         Helper::createIniFile(CONF, $options);
-        $model = new Model(new Configuration);
+        $model = new Model(new Configuration());
 
         $pasteData   = Helper::getPastePost();
         $commentData = Helper::getCommentPost();
@@ -421,7 +421,7 @@ class ModelTest extends TestCase
 
     public function testPurge()
     {
-        $conf  = new Configuration;
+        $conf  = new Configuration();
         $store = new Database($conf->getSection('model_options'));
         $store->delete(Helper::getPasteId());
         $expired = Helper::getPaste(2, array('expire_date' => 1344803344));
@@ -464,7 +464,7 @@ class ModelTest extends TestCase
             'opt' => array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION),
         );
         Helper::createIniFile(CONF, $options);
-        $model = new Model(new Configuration);
+        $model = new Model(new Configuration());
 
         $pasteData = Helper::getPastePost();
         $this->_model->getPaste(Helper::getPasteId())->delete();
@@ -510,7 +510,7 @@ class ModelTest extends TestCase
             'opt' => array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION),
         );
         Helper::createIniFile(CONF, $options);
-        $model = new Model(new Configuration);
+        $model = new Model(new Configuration());
 
         $pasteData   = Helper::getPastePost();
         $commentData = Helper::getCommentPost();

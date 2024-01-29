@@ -33,7 +33,7 @@ class ViewTest extends TestCase
     public function setUp(): void
     {
         /* Setup Routine */
-        $page = new View;
+        $page = new View();
         $page->assign('NAME', 'PrivateBinTest');
         $page->assign('BASEPATH', '');
         $page->assign('ERROR', self::$error);
@@ -132,7 +132,7 @@ class ViewTest extends TestCase
 
     public function testMissingTemplate()
     {
-        $test = new View;
+        $test = new View();
         $this->expectException(Exception::class);
         $this->expectExceptionCode(80);
         $test->draw('123456789 does not exist!');

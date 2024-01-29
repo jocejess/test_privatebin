@@ -26,7 +26,7 @@ class YourlsProxyTest extends TestCase
         $options['yourls']['apiurl']        = $this->_mock_yourls_service;
         Helper::confBackup();
         Helper::createIniFile(CONF, $options);
-        $this->_conf = new Configuration;
+        $this->_conf = new Configuration();
     }
 
     public function tearDown(): void

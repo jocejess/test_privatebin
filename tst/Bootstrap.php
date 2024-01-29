@@ -399,7 +399,7 @@ class StorageObjectStub extends StorageObject
 
     public function info(array $options = array())
     {
-        return key_exists('metadata',$this->_info) ? $this->_info['metadata'] : array();
+        return key_exists('metadata', $this->_info) ? $this->_info['metadata'] : array();
     }
 
     public function reload(array $options = array())

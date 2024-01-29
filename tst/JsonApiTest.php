@@ -59,7 +59,7 @@ class JsonApiTest extends TestCase
         $_SERVER['REMOTE_ADDR']           = '::1';
         $_SERVER['REQUEST_URI']           = '/';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -92,7 +92,7 @@ class JsonApiTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'PUT';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         unlink($file);
@@ -127,7 +127,7 @@ class JsonApiTest extends TestCase
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         $_SERVER['REQUEST_METHOD']        = 'DELETE';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         unlink($file);
@@ -153,7 +153,7 @@ class JsonApiTest extends TestCase
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         $_SERVER['REQUEST_METHOD']        = 'POST';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -172,7 +172,7 @@ class JsonApiTest extends TestCase
         $_GET[Helper::getPasteId()]       = '';
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -192,7 +192,7 @@ class JsonApiTest extends TestCase
     {
         $_GET['jsonld'] = 'paste';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertEquals(str_replace(
@@ -209,7 +209,7 @@ class JsonApiTest extends TestCase
     {
         $_GET['jsonld'] = 'comment';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertEquals(str_replace(
@@ -226,7 +226,7 @@ class JsonApiTest extends TestCase
     {
         $_GET['jsonld'] = 'pastemeta';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertEquals(str_replace(
@@ -243,7 +243,7 @@ class JsonApiTest extends TestCase
     {
         $_GET['jsonld'] = 'commentmeta';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertEquals(str_replace(
@@ -260,7 +260,7 @@ class JsonApiTest extends TestCase
     {
         $_GET['jsonld'] = CONF;
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertEquals('{}', $content, 'does not output nasty data');
@@ -284,7 +284,7 @@ class JsonApiTest extends TestCase
         $_SERVER['REQUEST_URI'] = '/path/shortenviayourls?link=https%3A%2F%2Fexample.com%2Fpath%2F%3Ffoo%23bar';
         $_GET['link']           = 'https://example.com/path/?foo#bar';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertStringContainsString('id="pasteurl" href="https://example.com/1"', $content, 'outputs shortened URL correctly');
@@ -298,7 +298,7 @@ class JsonApiTest extends TestCase
         $_SERVER['REQUEST_URI'] = '/path/shortenviayourls?link=https%3A%2F%2Fexample.com%2Fpath%2F%3Ffoo%23bar';
         $_GET['link']           = 'https://example.com/path/?foo#bar';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertStringContainsString('Error calling YOURLS.', $content, 'outputs error correctly');

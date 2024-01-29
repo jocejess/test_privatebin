@@ -53,7 +53,7 @@ class ControllerTest extends TestCase
         $_SERVER['QUERY_STRING']          = Helper::getPasteId();
         $_GET[Helper::getPasteId()]       = '';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertStringContainsString(
@@ -83,7 +83,7 @@ class ControllerTest extends TestCase
         Helper::createIniFile(CONF, $options);
         $_COOKIE['lang'] = 'de';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertStringContainsString(
@@ -104,7 +104,7 @@ class ControllerTest extends TestCase
         Helper::createIniFile(CONF, $options);
         $_COOKIE['lang'] = 'de';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertStringContainsString(
@@ -125,7 +125,7 @@ class ControllerTest extends TestCase
         Helper::createIniFile(CONF, $options);
         $_COOKIE['lang'] = 'de';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertMatchesRegularExpression(
@@ -144,7 +144,7 @@ class ControllerTest extends TestCase
         file_put_contents(CONF, '');
         $this->expectException(Exception::class);
         $this->expectExceptionCode(2);
-        new Controller;
+        new Controller();
     }
 
     /**
@@ -163,7 +163,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -194,7 +194,7 @@ class ControllerTest extends TestCase
         $_SERVER['REMOTE_ADDR']           = '::1';
         TrafficLimiter::canPass();
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -225,7 +225,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -250,7 +250,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -281,7 +281,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -306,7 +306,7 @@ class ControllerTest extends TestCase
         $_SERVER['REMOTE_ADDR']           = '::1';
         $time                             = time();
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -338,7 +338,7 @@ class ControllerTest extends TestCase
         $_SERVER['REMOTE_ADDR']           = '::1';
         $time                             = time();
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -370,7 +370,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -401,7 +401,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -426,7 +426,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -451,7 +451,7 @@ class ControllerTest extends TestCase
         $_SERVER['REMOTE_ADDR']           = '::1';
         $this->assertFalse($this->_data->exists(Helper::getPasteId()), 'paste does not exists before posting data');
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -472,11 +472,11 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         ob_end_clean();
         $this->_data->delete(Helper::getPasteId());
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -499,7 +499,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -524,7 +524,7 @@ class ControllerTest extends TestCase
         $_SERVER['REMOTE_ADDR']           = '::1';
         $this->_data->create(Helper::getPasteId(), Helper::getPaste());
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -550,7 +550,7 @@ class ControllerTest extends TestCase
         $_SERVER['REMOTE_ADDR']           = '::1';
         $this->_data->create(Helper::getPasteId(), Helper::getPaste());
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -577,7 +577,7 @@ class ControllerTest extends TestCase
         $paste['adata'][2]                = 0;
         $this->_data->create(Helper::getPasteId(), $paste);
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -601,7 +601,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -628,7 +628,7 @@ class ControllerTest extends TestCase
         $_SERVER['REQUEST_METHOD']        = 'POST';
         $_SERVER['REMOTE_ADDR']           = '::1';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -645,7 +645,7 @@ class ControllerTest extends TestCase
         $_GET['foo']                      = '';
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -662,7 +662,7 @@ class ControllerTest extends TestCase
         $_GET[Helper::getPasteId()]       = '';
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -681,7 +681,7 @@ class ControllerTest extends TestCase
         $_GET[Helper::getPasteId()]       = '';
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -701,7 +701,7 @@ class ControllerTest extends TestCase
         $_GET[Helper::getPasteId()]       = '';
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -730,7 +730,7 @@ class ControllerTest extends TestCase
         $_GET[Helper::getPasteId()]       = '';
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -762,7 +762,7 @@ class ControllerTest extends TestCase
         $_GET[Helper::getPasteId()]       = '';
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -790,7 +790,7 @@ class ControllerTest extends TestCase
         $_GET[Helper::getPasteId()]       = '';
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -809,7 +809,7 @@ class ControllerTest extends TestCase
         $_GET['pasteid']     = Helper::getPasteId();
         $_GET['deletetoken'] = hash_hmac('sha256', Helper::getPasteId(), $paste['meta']['salt']);
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertMatchesRegularExpression(
@@ -829,7 +829,7 @@ class ControllerTest extends TestCase
         $_GET['pasteid']     = 'foo';
         $_GET['deletetoken'] = 'bar';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertMatchesRegularExpression(
@@ -848,7 +848,7 @@ class ControllerTest extends TestCase
         $_GET['pasteid']     = Helper::getPasteId();
         $_GET['deletetoken'] = 'bar';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertMatchesRegularExpression(
@@ -867,7 +867,7 @@ class ControllerTest extends TestCase
         $_GET['pasteid']     = Helper::getPasteId();
         $_GET['deletetoken'] = 'bar';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertMatchesRegularExpression(
@@ -895,7 +895,7 @@ class ControllerTest extends TestCase
         $_SERVER['HTTP_X_REQUESTED_WITH'] = 'JSONHttpRequest';
         $_SERVER['REQUEST_METHOD']        = 'POST';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $response = json_decode($content, true);
@@ -915,7 +915,7 @@ class ControllerTest extends TestCase
         $_GET['pasteid']     = Helper::getPasteId();
         $_GET['deletetoken'] = 'does not matter in this context, but has to be set';
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertMatchesRegularExpression(
@@ -938,7 +938,7 @@ class ControllerTest extends TestCase
         $_GET['pasteid']     = Helper::getPasteId();
         $_GET['deletetoken'] = hash_hmac('sha256', Helper::getPasteId(), ServerSalt::get());
         ob_start();
-        new Controller;
+        new Controller();
         $content = ob_get_contents();
         ob_end_clean();
         $this->assertMatchesRegularExpression(
