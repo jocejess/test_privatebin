@@ -1,2 +1,2 @@
-FROM docker-nginx-fpm-alpine:latest
+FROM privatebin/nginx-fpm-alpine:latest
 
