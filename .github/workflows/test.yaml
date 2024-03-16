@@ -22,9 +22,10 @@ jobs:
 #        with:
 #          php_version: 8.1
 #          path: ./tst/
-    - uses: php-actions/phpstan@v3
-      with:
-        path: ./tst/
+     - name: phpstan
+     - uses: php-actions/phpstan@v3
+       with:
+         path: ./tst/
 
 #      - name: Build image
 #        run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
