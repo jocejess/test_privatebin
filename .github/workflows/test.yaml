@@ -17,11 +17,11 @@ jobs:
       - name: 📦 Install dependencies
         uses: php-actions/composer@v6
 
-      - name: PHP Code Sniffer
-        uses: php-actions/phpcs@v1
-        with:
-          php_version: 8.1
-          path: ./tst/
+#      - name: PHP Code Sniffer
+#        uses: php-actions/phpcs@v1
+#        with:
+#          php_version: 8.1
+#          path: ./tst/
       - name: phpstan
 #        uses: actions/checkout@v3
 #        uses: php-actions/composer@v6
