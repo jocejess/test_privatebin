@@ -29,6 +29,7 @@ jobs:
 #        with:
 #          path: ./tst/
 
+      - name: phpmd
         uses: php-actions/phpmd@v1
         with:
           php_version: 8.1
