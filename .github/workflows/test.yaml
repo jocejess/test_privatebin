@@ -17,15 +17,17 @@ jobs:
       - name: 📦 Install dependencies
         uses: php-actions/composer@v6
 
-#      - name: PHP Code Sniffer
-#        uses: php-actions/phpcs@v1
-#        with:
-#          php_version: 8.1
-#          path: ./tst/
-     - name: phpstan
-     - uses: php-actions/phpstan@v3
-       with:
-         path: ./tst/
+      - name: PHP Code Sniffer
+        uses: php-actions/phpcs@v1
+        with:
+          php_version: 8.1
+          path: ./tst/
+      - name: phpstan
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - uses: php-actions/phpstan@v3
+        with:
+          path: ./tst/
 
 #      - name: Build image
 #        run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
