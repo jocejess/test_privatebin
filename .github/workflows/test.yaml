@@ -1,3 +1,25 @@
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 📦 Install dependencies
+        uses: php-actions/composer@v6
+
+#      - name: PHP Code Sniffer
+#        uses: php-actions/phpcs@v1
+#        with:
+#          php_version: 8.1
+#          path: ./tst/
+      - name: phpstan
+#        uses: actions/checkout@v3
+#        uses: php-actions/composer@v6
+        uses: php-actions/phpstan@v3
+        with:
+          path: ./tst/
 name: Tests
 
 on: [push]
@@ -33,6 +55,36 @@ jobs:
 #        run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 #      - name: Log in to registry
 #        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 📦 Install dependencies
+        uses: php-actions/composer@v6
+      - name: phpmd
+        uses: php-actions/phpmd@v1
+        with:
+          php_version: 8.1
+          path: ./tst/
+          output: text
+          reportfile: phpmd.txt
+
+#      - name: PHP Code Sniffer
+#        uses: php-actions/phpcs@v1
+#        with:
+#          php_version: 8.1
+#          path: ./tst/
+#      - name: phpstan
+#        uses: actions/checkout@v3
+#        uses: php-actions/composer@v6
+#        uses: php-actions/phpstan@v3
+#        with:
+#          path: ./tst/
+
 
 #      - name: Push image
 #        run: |
