@@ -36,6 +36,7 @@ jobs:
           path: ./tst/
           output: text
           reportfile: phpmd.txt
+          ruleset: test/phpmd/ruleset.xml
 
 #      - name: Build image
 #        run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
